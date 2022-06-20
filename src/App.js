@@ -1,9 +1,9 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
-import Home from './components/Home';
-import Table from './components/Table'
 import NavBar from './components/NavBar';
-import Results from './components/Results';
+import HomePage from './pages/HomePage';
+import ResultsPage from './pages/ResultsPage';
+import TablePage from './pages/TablePage';
 
 function App() {
   return (
@@ -11,15 +11,9 @@ function App() {
       <Router>
         <NavBar />
         <Switch>
-          <Route path="/table">
-            <Table />
-          </Route>
-          <Route path="/results">
-            <Results />
-          </Route>
-          <Route path="/">
-            <Home />
-          </Route>
+          <Route path="/table" component={TablePage} />
+          <Route path="/results" component={ResultsPage} />
+          <Route path="/" component={HomePage} />
         </Switch>
       </Router>
     </div>

@@ -11,9 +11,9 @@ export default function NavBar() {
             Premier League
           </Navbar.Brand>
           <Nav className="me-auto">
-            <Nav.Link href="/home/">Home</Nav.Link>
-            <Nav.Link href="/table/">Table</Nav.Link>
-            <Nav.Link href="/results/">Results</Nav.Link>
+            <Nav.Link href="/home">Home</Nav.Link>
+            <Nav.Link href="/table">Table</Nav.Link>
+            <Nav.Link href="/results">Results</Nav.Link>
           </Nav>
         </Container>
       </Navbar>
