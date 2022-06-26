@@ -11,7 +11,7 @@ function App() {
       <Router>
         <NavBar />
         <Switch>
-          <Route path="/table" component={TablePage} />
+          <Route path="/table/:season" component={TablePage} />
           <Route path="/results" component={ResultsPage} />
           <Route path="/" component={HomePage} />
         </Switch>
