@@ -1,6 +1,5 @@
 import { React, useEffect, useState }  from 'react'
 import { Container, Table, Dropdown, DropdownButton } from 'react-bootstrap'
-import { useParams } from 'react-router-dom';
 
 export default function TablePage() {
 
@@ -31,7 +30,7 @@ export default function TablePage() {
         <br></br>
         <DropdownButton id="dropdown-basic-button" title={`Season ${season}`} className="text-left" onSelect={(e) => setSeason(e)}>
           {seasons.map((season, index) => {
-            return (<Dropdown.Item key={index} eventKey={season}>{season}</Dropdown.Item>)
+            return (<Dropdown.Item key={index} eventKey={`${season}`}>{season}</Dropdown.Item>)
           })}
         </DropdownButton>
         <br></br>
