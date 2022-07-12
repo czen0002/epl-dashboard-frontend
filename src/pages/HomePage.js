@@ -152,9 +152,10 @@ export default function HomePage() {
 ]
   return (
     <Container>
-      <Row>
-        {teams.map(team => <TeamTile key={team.teamId} teamName={team.teamName} />)}
-      </Row>
+        <br/>
+        <Row>
+            {teams.map(team => <TeamTile key={team.teamId} teamName={team.teamName} />)}
+        </Row>
     </Container>
   )
 }
