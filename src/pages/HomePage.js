@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react'
-import { Container, Row } from 'react-bootstrap'
-import TeamTile from '../components/TeamTile'
+import React, { useEffect, useState } from 'react';
+import { Container, Row } from 'react-bootstrap';
+import TeamTile from '../components/TeamTile';
 
 export default function HomePage() {
   

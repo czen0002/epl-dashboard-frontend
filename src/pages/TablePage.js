@@ -1,5 +1,5 @@
-import { React, useEffect, useState }  from 'react'
-import { Container, Table, Dropdown, DropdownButton } from 'react-bootstrap'
+import { React, useEffect, useState }  from 'react';
+import { Container, Table, Dropdown, DropdownButton } from 'react-bootstrap';
 
 export default function TablePage() {
 
