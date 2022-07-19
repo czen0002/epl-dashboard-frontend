@@ -23,12 +23,12 @@ export default function TablePage() {
       }
     }
     fetchAllTeams();
-  }, [season])
+  }, [season]);
 
   return (
     <Container style={{ textAlign: 'left' }}>
         <br></br>
-        <DropdownButton id="dropdown-basic-button" title={`Season ${season}`} className="text-left" onSelect={(e) => setSeason(e)}>
+        <DropdownButton id="dropdown-basic-button" title={`${season}`} className="text-left" onSelect={(e) => setSeason(e)}>
           {seasons.map((season, index) => {
             return (<Dropdown.Item key={index} eventKey={`${season}`}>{season}</Dropdown.Item>)
           })}
