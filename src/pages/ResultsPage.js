@@ -100,19 +100,13 @@ export default function ResultsPage() {
       <Container style={{ textAlign: 'left' }}>
         <br></br>
         <DropdownButton title={team !== '' ? `${team}` : 'Team'} className="d-inline mx-2" onSelect={(e) => setTeam(e)}>
-          {teams.map((team, index) => {
-            return (<Dropdown.Item key={index} eventKey={`${team}`}>{team}</Dropdown.Item>)
-          })}
+          {teams.map((team, index) => <Dropdown.Item key={index} eventKey={`${team}`}>{team}</Dropdown.Item>)}
         </DropdownButton>
         <DropdownButton title={season !== '' ? `${season}` : 'Season'} className="d-inline mx-2" onSelect={(e) => setSeason(e)}>
-          {seasons.map((season, index) => {
-            return (<Dropdown.Item key={index} eventKey={`${season}`}>{season}</Dropdown.Item>)
-          })}
+          {seasons.map((season, index) => <Dropdown.Item key={index} eventKey={`${season}`}>{season}</Dropdown.Item>)}
         </DropdownButton>
         <DropdownButton title={month !== '' ? `${month}` : 'Month'} className="d-inline mx-2" onSelect={(e) => setMonth(e)}>
-          {months.map((month, index) => {
-            return (<Dropdown.Item key={index} eventKey={`${month}`}>{month}</Dropdown.Item>)
-          })}
+          {months.map((month, index) => <Dropdown.Item key={index} eventKey={`${month}`}>{month}</Dropdown.Item>)}
         </DropdownButton>
         <br></br>
         <br></br>
