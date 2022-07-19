@@ -1,9 +1,13 @@
-import React, { useEffect, useState } from 'react'
-import { Container, DropdownButton, Dropdown } from 'react-bootstrap'
+import React, { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
+import { Container, DropdownButton, Dropdown } from 'react-bootstrap';
 
 export default function ResultsPage() {
 
-  const [team, setTeam] = useState('');
+  const location = useLocation();
+  const teamNameFromHomePage = location.state ? location.state.team : ''; 
+
+  const [team, setTeam] = useState(() => teamNameFromHomePage ? teamNameFromHomePage : '');
   const [season, setSeason] = useState('2021-22');
   const [month, setMonth] = useState('');
   const [teams, setTeams] = useState([]);
@@ -83,16 +87,23 @@ export default function ResultsPage() {
         console.log(err);
       }
     };
+
     fetchTeamsBySeason();
+
     if (month === '' && team === '') {
+      console.log('fetchMatchesBySeason');
       fetchMatchesBySeason();
     } else if (month !== '' && team === '') {
+      console.log('fetchMatchesByMonthBySeason');
       fetchMatchesByMonthBySeason();
     } else if (month === '' && team !== '') {
+      console.log('fetchMatchesByTeamBySeason');
       fetchMatchesByTeamBySeason();
     } else if (month !== '' && team !== '') {
+      console.log('fetchMatchesByTeamByMonthBySeason');
       fetchMatchesByTeamByMonthBySeason();
     }
+
   }, [team, season, month]);
 
   return (
@@ -114,7 +125,7 @@ export default function ResultsPage() {
           return (
             <ul style={{listStyleType: 'none'}}>
               <li>
-                <div className="jumbotron jumbotron-fluid" style={{backgroundColor: 'gray'}}>
+                <div  key={index} className="jumbotron jumbotron-fluid" style={{backgroundColor: 'gray'}}>
                   <div className="container">
                     <h1 className="display-4">Match {match['date']}</h1>
                     <p className="lead">{match['homeTeam']} vs {match['awayTeam']}</p>
