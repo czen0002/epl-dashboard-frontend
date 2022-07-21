@@ -1,21 +1,25 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import { Container, DropdownButton, Dropdown } from 'react-bootstrap';
+import { Container, DropdownButton, Dropdown, Button } from 'react-bootstrap';
 
 export default function ResultsPage() {
 
+  const defaultSeasons = ['2021-22', '2020-21', '2019-20', '2018-19', '2017-18', '2016-17', '2015-16'];
+  const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
   const location = useLocation();
-  const teamNameFromHomePage = location.state ? location.state.team : ''; 
+  var teamNameFromHomePage = location.state ? location.state.team : ''; 
 
   const [team, setTeam] = useState(() => teamNameFromHomePage ? teamNameFromHomePage : '');
-  const [season, setSeason] = useState('2021-22');
+  const [seasons, setSeasons] = useState(defaultSeasons);
+  const [season, setSeason] = useState(seasons[0]);
   const [month, setMonth] = useState('');
   const [teams, setTeams] = useState([]);
   const [matches, setMatches] = useState([]);
+  const [flag, setFlag] = useState(true);
 
-  const seasons = ['2021-22', '2020-21', '2019-20', '2018-19', '2017-18', '2016-17', '2015-16'];
-  const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-
+  const selectTeam = useRef('');
+  
   useEffect(() => {
     const fetchMatchesBySeason = async () => {
       try {
@@ -75,7 +79,7 @@ export default function ResultsPage() {
 
     const fetchTeamsBySeason = async () => {
       try {
-        const response = await fetch(` http://localhost:8080/v1/team/season/${season}`);
+        const response = await fetch(`http://localhost:8080/v1/team/season/${season}`);
         if (response.status !== 200) {
           // do nothing
         } else {
@@ -88,6 +92,31 @@ export default function ResultsPage() {
       }
     };
 
+    const fetchSeasonsByTeam = async () => {
+      try {
+        const response = await fetch(`http://localhost:8080/v1/team/seasons/${team}`);
+        if (response.status !== 200) {
+          // do nothing
+        } else {
+          const data = await response.json();
+          const seasonsArray = data['seasons'];
+          setSeasons(seasonsArray);
+          console.log('selectTeam ' + selectTeam.current);
+          console.log('team ' + team);
+          if (selectTeam.current === '' && team !== ''  && flag) {
+            setSeason(seasonsArray[0]);
+            setFlag(false);
+          }
+        }
+      } catch (err) {
+        console.log(err);
+      }
+    }
+
+    if (team) {
+      fetchSeasonsByTeam();
+    }
+    
     fetchTeamsBySeason();
 
     if (month === '' && team === '') {
@@ -110,7 +139,10 @@ export default function ResultsPage() {
     <>
       <Container style={{ textAlign: 'left' }}>
         <br></br>
-        <DropdownButton title={team !== '' ? `${team}` : 'Team'} className="d-inline mx-2" onSelect={(e) => setTeam(e)}>
+        <DropdownButton title={team !== '' ? `${team}` : 'Team'} className="d-inline mx-2" onSelect={(e) => {
+          setTeam(e);
+          selectTeam.current = e;
+        }}>
           {teams.map((team, index) => <Dropdown.Item key={index} eventKey={`${team}`}>{team}</Dropdown.Item>)}
         </DropdownButton>
         <DropdownButton title={season !== '' ? `${season}` : 'Season'} className="d-inline mx-2" onSelect={(e) => setSeason(e)}>
@@ -119,6 +151,12 @@ export default function ResultsPage() {
         <DropdownButton title={month !== '' ? `${month}` : 'Month'} className="d-inline mx-2" onSelect={(e) => setMonth(e)}>
           {months.map((month, index) => <Dropdown.Item key={index} eventKey={`${month}`}>{month}</Dropdown.Item>)}
         </DropdownButton>
+        <Button variant="info" className="d-inline mx-2" onClick={() => {
+          setTeam('');
+          setMonth('');
+          setSeason(defaultSeasons[0]);
+          setSeasons(defaultSeasons);
+        }}>Reset</Button>
         <br></br>
         <br></br>
         {matches.map((match, index) => {
