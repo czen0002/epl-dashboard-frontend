@@ -17,8 +17,6 @@ export default function ResultsPage() {
   const [teams, setTeams] = useState([]);
   const [matches, setMatches] = useState([]);
   const [flag, setFlag] = useState(true);
-
-  const selectTeam = useRef('');
   
   useEffect(() => {
     const fetchMatchesBySeason = async () => {
@@ -101,11 +99,9 @@ export default function ResultsPage() {
           const data = await response.json();
           const seasonsArray = data['seasons'];
           setSeasons(seasonsArray);
-          console.log('selectTeam ' + selectTeam.current);
-          console.log('team ' + team);
-          if (selectTeam.current === '' && team !== ''  && flag) {
+          setFlag(false);
+          if (flag) {
             setSeason(seasonsArray[0]);
-            setFlag(false);
           }
         }
       } catch (err) {
@@ -120,16 +116,12 @@ export default function ResultsPage() {
     fetchTeamsBySeason();
 
     if (month === '' && team === '') {
-      console.log('fetchMatchesBySeason');
       fetchMatchesBySeason();
     } else if (month !== '' && team === '') {
-      console.log('fetchMatchesByMonthBySeason');
       fetchMatchesByMonthBySeason();
     } else if (month === '' && team !== '') {
-      console.log('fetchMatchesByTeamBySeason');
       fetchMatchesByTeamBySeason();
     } else if (month !== '' && team !== '') {
-      console.log('fetchMatchesByTeamByMonthBySeason');
       fetchMatchesByTeamByMonthBySeason();
     }
 
@@ -139,10 +131,7 @@ export default function ResultsPage() {
     <>
       <Container style={{ textAlign: 'left' }}>
         <br></br>
-        <DropdownButton title={team !== '' ? `${team}` : 'Team'} className="d-inline mx-2" onSelect={(e) => {
-          setTeam(e);
-          selectTeam.current = e;
-        }}>
+        <DropdownButton title={team !== '' ? `${team}` : 'Team'} className="d-inline mx-2" onSelect={(e) => setTeam(e)}>
           {teams.map((team, index) => <Dropdown.Item key={index} eventKey={`${team}`}>{team}</Dropdown.Item>)}
         </DropdownButton>
         <DropdownButton title={season !== '' ? `${season}` : 'Season'} className="d-inline mx-2" onSelect={(e) => setSeason(e)}>
