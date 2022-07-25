@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import { Container, DropdownButton, Dropdown, Button, Collapse } from 'react-bootstrap';
+import { Container, DropdownButton, Dropdown, Button } from 'react-bootstrap';
+import MatchOnDate from '../components/MatchOnDate';
 
 export default function ResultsPage() {
 
@@ -154,6 +155,7 @@ export default function ResultsPage() {
     <>
       <Container style={{ textAlign: 'left' }}>
         <br></br>
+        <br></br>
         <DropdownButton title={team !== '' ? `${team}` : 'Team'} className="d-inline mx-2" onSelect={(e) => setTeam(e)}>
           {teams.map((team, index) => <Dropdown.Item key={index} eventKey={`${team}`}>{team}</Dropdown.Item>)}
         </DropdownButton>
@@ -171,35 +173,8 @@ export default function ResultsPage() {
         }}>Reset</Button>
         <br></br>
         <br></br>
-        {
-          createArrayFromDic(createMatchDic(matches)).map((matchesObj, index) => {
-            const matchesOnDate = matchesObj['matchArray'];
-            return (
-              <div key={index}>
-                <p className='display-4' style={{color: 'white'}}>{matchesObj['date']}</p>
-                {
-                  matchesOnDate.map((match, index) => {
-                    return (
-                      <ul key={index} style={{listStyleType: 'none'}}>
-                        <li key={index} >
-                          <div 
-                          className="jumbotron jumbotron-fluid" 
-                          style={{backgroundColor: 'gray'}} 
-                          >
-                            <div className="container">
-                              <h1 className="display-4">Match {match['date']}</h1>
-                              <p className="lead">{match['homeTeam']} vs {match['awayTeam']}</p>
-                            </div>
-                          </div> 
-                        </li>
-                      </ul>
-                    )
-                  })
-                }     
-              </div> 
-            )
-          })
-        }
+        {createArrayFromDic(createMatchDic(matches)).map((matchesObj, index) => 
+          <MatchOnDate key={index} listIndex={index} matchesObject={matchesObj} />)}
       </Container> 
     </>
   
