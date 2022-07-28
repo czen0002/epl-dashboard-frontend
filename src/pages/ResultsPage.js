@@ -9,12 +9,28 @@ export default function ResultsPage() {
   const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
   const location = useLocation();
-  var teamNameFromHomePage = location.state ? location.state.team : ''; 
+  const teamNameFromOtherPage = location.state ? location.state.team : '';
+  var monthFromMatchPage;
+  if (location.state) {
+    if (location.state.month) {
+      monthFromMatchPage = location.state.month;
+    } else {
+      monthFromMatchPage = '';
+    }
+  }
+  var seasonFromMatchPage;
+  if (location.state) {
+    if (location.state.season) {
+      seasonFromMatchPage = location.state.season;
+    } else {
+      seasonFromMatchPage = '';
+    }
+  }
 
-  const [team, setTeam] = useState(() => teamNameFromHomePage ? teamNameFromHomePage : '');
+  const [team, setTeam] = useState(() => teamNameFromOtherPage ? teamNameFromOtherPage : '');
   const [seasons, setSeasons] = useState(defaultSeasons);
-  const [season, setSeason] = useState(seasons[0]);
-  const [month, setMonth] = useState('');
+  const [season, setSeason] = useState(() => seasonFromMatchPage ? seasonFromMatchPage : seasons[0]);
+  const [month, setMonth] = useState(() => monthFromMatchPage ? monthFromMatchPage : '');
   const [teams, setTeams] = useState([]);
   const [matches, setMatches] = useState([]);
   const [flag, setFlag] = useState(true);
@@ -152,7 +168,6 @@ export default function ResultsPage() {
   }, [team, season, month]);
 
   return (
-    <>
       <Container style={{ textAlign: 'left' }}>
         <br></br>
         <br></br>
@@ -174,9 +189,7 @@ export default function ResultsPage() {
         <br></br>
         <br></br>
         {createArrayFromDic(createMatchDic(matches)).map((matchesObj, index) => 
-          <MatchOnDate key={index} listIndex={index} matchesObject={matchesObj} />)}
+          <MatchOnDate key={index} listIndex={index} matchesObject={matchesObj} month={month} season={season}/>)}
       </Container> 
-    </>
-  
   )
 }
