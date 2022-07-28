@@ -1,0 +1,30 @@
+#matchTitle {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;;
+}
+
+#matchCenter{
+  display: grid;
+}
+
+#matchCenter #rowOne {
+  grid-row: 1/2;
+}
+
+#matchCenter #rowTwo {
+  grid-row: 2/3;
+}
+
+#matchCenter #rowThree {
+  grid-row: 3/4;
+}
+
+#matchCenter #matchScore {
+  grid-row: 4/6;
+}
+
+#matchScore {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  background-color: rgb(55, 60, 60);
+}
