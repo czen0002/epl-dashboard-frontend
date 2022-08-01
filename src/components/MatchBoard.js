@@ -41,7 +41,7 @@ export default function MatchBoard({ match }) {
         </Col>
         <Col id='awayStat' sm={1}>{match['awayTeamShots']}</Col>
       </Row>
-      <hr></hr>
+      <hr style={{height: '1px', color: 'white'}}></hr>
       <h4 id='statTitle'>Shots On Target</h4>
       <Row>
         <Col id='homeStat' sm={1}>{match['homeTeamShotsOnTarget']}</Col>
@@ -57,7 +57,7 @@ export default function MatchBoard({ match }) {
         </Col>
         <Col id='awayStat' sm={1}>{match['awayTeamShotsOnTarget']}</Col>
       </Row>
-      <hr></hr>
+      <hr style={{height: '1px', color: 'white'}}></hr>
       <h4 id='statTitle'>Corners</h4>
       <Row>
         <Col id='homeStat' sm={1}>{match['homeTeamCorners']}</Col>
@@ -73,7 +73,7 @@ export default function MatchBoard({ match }) {
         </Col>
         <Col id='awayStat' sm={1}>{match['awayTeamCorners']}</Col>
       </Row>
-      <hr></hr>
+      <hr style={{height: '1px', color: 'white'}}></hr>
       <h4 id='statTitle'>Fouls Committed</h4>
       <Row>
         <Col id='homeStat' sm={1}>{match['homeTeamFoulsCommitted']}</Col>
@@ -89,7 +89,7 @@ export default function MatchBoard({ match }) {
         </Col>
         <Col id='awayStat' sm={1}>{match['awayTeamFoulsCommitted']}</Col>
       </Row>
-      <hr></hr>
+      <hr style={{height: '1px', color: 'white'}}></hr>
       <h4 id='statTitle'>Yellow Cards</h4>
       <Row>
         <Col id='homeStat' sm={1}>{match['homeTeamYellowCards']}</Col>
@@ -105,7 +105,7 @@ export default function MatchBoard({ match }) {
         </Col>
         <Col id='awayStat' sm={1}>{match['awayTeamYellowCards']}</Col>
       </Row>
-      <hr></hr>
+      <hr style={{height: '1px', color: 'white'}}></hr>
       <h4 id='statTitle'>Red Cards</h4>
       <Row>
         <Col id='homeStat' sm={1}>{match['homeTeamRedCards']}</Col>
@@ -121,7 +121,7 @@ export default function MatchBoard({ match }) {
         </Col>
         <Col id='awayStat' sm={1}>{match['awayTeamRedCards']}</Col>
       </Row>
-      <hr></hr>
+      <hr style={{height: '1px', color: 'white'}}></hr>
     </div>
   )
 }
