@@ -1,13 +1,11 @@
-import { React, useEffect, useState }  from 'react'
-import { Container, Table, Dropdown, DropdownButton } from 'react-bootstrap'
-import { useParams } from 'react-router-dom';
+import { React, useEffect, useState }  from 'react';
+import { Container, Table, Dropdown, DropdownButton } from 'react-bootstrap';
+import { seasons } from '../constants';
 
 export default function TablePage() {
 
   const [teams, setTeams] = useState([]);
   const [season, setSeason] = useState('2021-22');
-
-  const seasons = ['2021-22', '2020-21', '2019-20', '2018-19', '2017-18', '2016-17', '2015-16'];
 
   useEffect(() => {
     const fetchAllTeams = async () => {
@@ -24,14 +22,14 @@ export default function TablePage() {
       }
     }
     fetchAllTeams();
-  }, [season])
+  }, [season]);
 
   return (
     <Container style={{ textAlign: 'left' }}>
         <br></br>
-        <DropdownButton id="dropdown-basic-button" title={`Season ${season}`} className="text-left" onSelect={(e) => setSeason(e)}>
+        <DropdownButton id="dropdown-basic-button" title={`${season}`} className="text-left" onSelect={(e) => setSeason(e)}>
           {seasons.map((season, index) => {
-            return (<Dropdown.Item key={index} eventKey={season}>{season}</Dropdown.Item>)
+            return (<Dropdown.Item key={index} eventKey={`${season}`}>{season}</Dropdown.Item>)
           })}
         </DropdownButton>
         <br></br>

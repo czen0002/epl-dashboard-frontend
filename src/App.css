@@ -3,3 +3,90 @@
   background-color: #282c34;
   min-height: 100vh;
 }
+
+@media screen and (max-width: 576px) {
+  #homeTeam {
+    text-align: center;
+    font-size: 200%;
+  }
+  #awayTeam {
+    text-align: center;
+    font-size: 200%;
+  }
+  #score {
+    font-size: 175%;
+  }
+}
+
+@media screen and (min-width: 576px) {
+  #homeTeam {
+    text-align: right;
+    font-size: 100%;
+  }
+  #awayTeam {
+    text-align: left;
+    font-size: 100%;
+  }
+  #score {
+    font-size: 100%;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  #homeTeam {
+    text-align: right;
+    font-size: 200%;
+  }
+  #awayTeam {
+    text-align: left;
+    font-size: 200%;
+  }
+  #score {
+    font-size: 175%;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  #homeTeam {
+    text-align: right;
+    font-size: 250%;
+  }
+  #awayTeam {
+    text-align: left;
+    font-size: 250%;
+  }
+  #score {
+    font-size: 200%;
+  }
+}
+
+#statTitle {
+  text-align: center;
+  color: aliceblue;
+}
+
+#homeStat {
+  text-align: left;
+  color: aliceblue;
+  font-size: large;
+}
+
+#awayStat {
+  text-align: right;
+  color: aliceblue;
+  font-size: large;
+}
+
+#block1 {
+  display: inline-block;
+  background-color: #04AA6D;
+}
+
+#block2 {
+  display: inline-block;
+}
+
+.statBarContainer {
+  width: 50%;
+  background-color: #ddd;
+}
