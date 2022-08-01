@@ -189,7 +189,7 @@ export default function ResultsPage() {
         <br></br>
         <br></br>
         {createArrayFromDic(createMatchDic(matches)).map((matchesObj, index) => 
-          <MatchOnDate key={index} listIndex={index} matchesObject={matchesObj} month={month} season={season}/>)}
+          <MatchOnDate key={index} listIndex={index} matchesObject={matchesObj} team={team} month={month} season={season}/>)}
       </Container> 
   )
 }

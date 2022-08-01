@@ -23,8 +23,6 @@ export default function MatchPage() {
     });
   };
 
-  console.log(team);
-
   return (
     <Container>
       <br></br>

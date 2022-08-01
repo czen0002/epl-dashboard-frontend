@@ -2,13 +2,14 @@ import React from 'react';
 import { Col, Row, Image} from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 
-export default function MatchTile({ index, match, month, season }) {
+export default function MatchTile({ index, match, team, month, season }) {
 
   const navigate = useNavigate();
   const navigateMatchPage = () => {
     navigate("/match", {
       state: {
         match: match,
+        team: team,
         month: month,
         season: season
       }
