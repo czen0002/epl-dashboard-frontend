@@ -2,11 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Container, DropdownButton, Dropdown, Button } from 'react-bootstrap';
 import MatchOnDate from '../components/MatchOnDate';
+import { months, seasons as defaultSeasons } from '../constants';
 
 export default function ResultsPage() {
-
-  const defaultSeasons = ['2021-22', '2020-21', '2019-20', '2018-19', '2017-18', '2016-17', '2015-16'];
-  const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
   const location = useLocation();
   const teamNameFromOtherPage = location.state ? location.state.team : '';

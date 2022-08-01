@@ -1,12 +1,11 @@
 import { React, useEffect, useState }  from 'react';
 import { Container, Table, Dropdown, DropdownButton } from 'react-bootstrap';
+import { seasons } from '../constants';
 
 export default function TablePage() {
 
   const [teams, setTeams] = useState([]);
   const [season, setSeason] = useState('2021-22');
-
-  const seasons = ['2021-22', '2020-21', '2019-20', '2018-19', '2017-18', '2016-17', '2015-16'];
 
   useEffect(() => {
     const fetchAllTeams = async () => {

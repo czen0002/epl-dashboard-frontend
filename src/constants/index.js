@@ -30,4 +30,8 @@ export const stadiums = {
   'West Brom': 'The Hawthorns',
   'West Ham': 'London Stadium',
   'Wolves': 'Molineux Stadium'
-}
+};
+
+export const seasons = ['2021-22', '2020-21', '2019-20', '2018-19', '2017-18', '2016-17', '2015-16'];
+
+export const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
