@@ -1,22 +1,36 @@
 #matchTitle {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+#matchLogo {
+  margin: auto;
 }
 
 #matchCenter{
   display: grid;
+  height: 84%;
+  width: 80%;
+  background-color: #565656;
+  margin: auto;
 }
 
 #matchCenter #rowOne {
   grid-row: 1/2;
+  margin: auto;
+  color: aliceblue;
 }
 
 #matchCenter #rowTwo {
   grid-row: 2/3;
+  margin: auto;
+  color: aliceblue;
 }
 
 #matchCenter #rowThree {
   grid-row: 3/4;
+  margin: auto;
+  color: aliceblue;
 }
 
 #matchCenter #matchScore {
@@ -27,4 +41,9 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   background-color: rgb(55, 60, 60);
+  color: aliceblue;
+}
+
+#matchScoreCol {
+  margin: auto;
 }
