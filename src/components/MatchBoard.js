@@ -1,5 +1,6 @@
 import React from 'react';
 import { Col, Row } from 'react-bootstrap';
+import "./MatchBoard.scss";
 
 export default function MatchBoard({ match }) {
 

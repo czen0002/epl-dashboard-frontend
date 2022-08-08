@@ -1,0 +1,30 @@
+#statTitle {
+  text-align: center;
+  color: aliceblue;
+}
+
+#homeStat {
+  text-align: left;
+  color: aliceblue;
+  font-size: large;
+}
+
+#awayStat {
+  text-align: right;
+  color: aliceblue;
+  font-size: large;
+}
+
+#block1 {
+  display: inline-block;
+  background-color: #04AA6D;
+}
+
+#block2 {
+  display: inline-block;
+}
+
+.statBarContainer {
+  width: 50%;
+  background-color: #ddd;
+}
