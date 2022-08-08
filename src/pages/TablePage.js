@@ -1,11 +1,23 @@
 import { React, useEffect, useState }  from 'react';
 import { Container, Table, Dropdown, DropdownButton } from 'react-bootstrap';
+import {useNavigate} from 'react-router-dom';
 import { seasons } from '../constants';
 
 export default function TablePage() {
 
   const [teams, setTeams] = useState([]);
   const [season, setSeason] = useState('2021-22');
+
+  const navigate = useNavigate();
+  const navigateResults = (teamName) => {
+    navigate("/results", {
+      state: {
+        team: teamName,
+        season: season,
+        month: ''
+      }
+    });
+  };
 
   useEffect(() => {
     const fetchAllTeams = async () => {
@@ -55,7 +67,7 @@ export default function TablePage() {
                   <td>{index+1}</td>
                   <td>
                     <img src={`/images/${team.teamName}.png`} width='30' height='30' alt={`${team.teamName}`}></img>
-                    &nbsp;&nbsp;{team.teamName}
+                    &nbsp;&nbsp;<div style={{display: 'inline'}} onClick={() => navigateResults(team.teamName)}>{team.teamName}</div>
                   </td>
                   <td>{team.played}</td>
                   <td>{team.won}</td>

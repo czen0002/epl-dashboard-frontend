@@ -17,8 +17,8 @@ export default function MatchPage() {
     navigate("/results" , {
       state: {
         team: team,
-        month: month,
-        season: season
+        season: season,
+        month: month
       }
     });
   };
