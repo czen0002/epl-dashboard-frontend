@@ -27,102 +27,102 @@ export default function MatchBoard({ match }) {
 
   return (
     <div>
-      <h4 id='statTitle'>Shots</h4>
+      <h4 className='statTitle'>Shots</h4>
       <Row>
-        <Col id='homeStat' sm={1}>{match['homeTeamShots']}</Col>
+        <Col className='homeStat' sm={1}>{match['homeTeamShots']}</Col>
         <Col>
           <div>
-            <div id='block1' className="statBarContainer">
+            <div id='homeTeamBar' className="statBarContainer">
               <div style={statBarStyle(awayShot, true)}>&nbsp;</div>
             </div>
-            <div id='block2' className="statBarContainer">
+            <div id='awayTeamBar' className="statBarContainer">
               <div style={statBarStyle(awayShot, false)}>&nbsp;</div>
             </div>
           </div>
         </Col>
-        <Col id='awayStat' sm={1}>{match['awayTeamShots']}</Col>
+        <Col className='awayStat' sm={1}>{match['awayTeamShots']}</Col>
       </Row>
-      <hr style={{height: '1px', color: 'white'}}></hr>
-      <h4 id='statTitle'>Shots On Target</h4>
+      <hr></hr>
+      <h4 className='statTitle'>Shots On Target</h4>
       <Row>
-        <Col id='homeStat' sm={1}>{match['homeTeamShotsOnTarget']}</Col>
+        <Col className='homeStat' sm={1}>{match['homeTeamShotsOnTarget']}</Col>
         <Col>
           <div>
-            <div id='block1' className="statBarContainer">
+            <div id='homeTeamBar' className="statBarContainer">
               <div style={statBarStyle(awayShotOnTarget, true)}>&nbsp;</div>
             </div>
-            <div id='block2' className="statBarContainer">
+            <div id='awayTeamBar' className="statBarContainer">
               <div style={statBarStyle(awayShotOnTarget, false)}>&nbsp;</div>
             </div>
           </div>
         </Col>
-        <Col id='awayStat' sm={1}>{match['awayTeamShotsOnTarget']}</Col>
+        <Col className='awayStat' sm={1}>{match['awayTeamShotsOnTarget']}</Col>
       </Row>
-      <hr style={{height: '1px', color: 'white'}}></hr>
-      <h4 id='statTitle'>Corners</h4>
+      <hr></hr>
+      <h4 className='statTitle'>Corners</h4>
       <Row>
-        <Col id='homeStat' sm={1}>{match['homeTeamCorners']}</Col>
+        <Col className='homeStat' sm={1}>{match['homeTeamCorners']}</Col>
         <Col>
           <div>
-            <div id='block1' className="statBarContainer">
+            <div id='homeTeamBar' className="statBarContainer">
               <div style={statBarStyle(awayCorners, true)}>&nbsp;</div>
             </div>
-            <div id='block2' className="statBarContainer">
+            <div id='awayTeamBar' className="statBarContainer">
               <div style={statBarStyle(awayCorners, false)}>&nbsp;</div>
             </div>
           </div>
         </Col>
-        <Col id='awayStat' sm={1}>{match['awayTeamCorners']}</Col>
+        <Col className='awayStat' sm={1}>{match['awayTeamCorners']}</Col>
       </Row>
-      <hr style={{height: '1px', color: 'white'}}></hr>
-      <h4 id='statTitle'>Fouls Committed</h4>
+      <hr></hr>
+      <h4 className='statTitle'>Fouls Committed</h4>
       <Row>
-        <Col id='homeStat' sm={1}>{match['homeTeamFoulsCommitted']}</Col>
+        <Col className='homeStat' sm={1}>{match['homeTeamFoulsCommitted']}</Col>
         <Col>
           <div>
-            <div id='block1' className="statBarContainer">
+            <div id='homeTeamBar' className="statBarContainer">
               <div style={statBarStyle(awayTeamFoulsCommitted, true)}>&nbsp;</div>
             </div>
-            <div id='block2' className="statBarContainer">
+            <div id='awayTeamBar' className="statBarContainer">
               <div style={statBarStyle(awayTeamFoulsCommitted, false)}>&nbsp;</div>
             </div>
           </div>
         </Col>
-        <Col id='awayStat' sm={1}>{match['awayTeamFoulsCommitted']}</Col>
+        <Col className='awayStat' sm={1}>{match['awayTeamFoulsCommitted']}</Col>
       </Row>
-      <hr style={{height: '1px', color: 'white'}}></hr>
-      <h4 id='statTitle'>Yellow Cards</h4>
+      <hr></hr>
+      <h4 className='statTitle'>Yellow Cards</h4>
       <Row>
-        <Col id='homeStat' sm={1}>{match['homeTeamYellowCards']}</Col>
+        <Col className='homeStat' sm={1}>{match['homeTeamYellowCards']}</Col>
         <Col>
           <div>
-            <div id='block1' className="statBarContainer">
+            <div id='homeTeamBar' className="statBarContainer">
               <div style={statBarStyle(awayTeamYellowCards, true)}>&nbsp;</div>
             </div>
-            <div id='block2' className="statBarContainer">
+            <div id='awayTeamBar' className="statBarContainer">
               <div style={statBarStyle(awayTeamYellowCards, false)}>&nbsp;</div>
             </div>
           </div>
         </Col>
-        <Col id='awayStat' sm={1}>{match['awayTeamYellowCards']}</Col>
+        <Col className='awayStat' sm={1}>{match['awayTeamYellowCards']}</Col>
       </Row>
-      <hr style={{height: '1px', color: 'white'}}></hr>
-      <h4 id='statTitle'>Red Cards</h4>
+      <hr></hr>
+      <h4 className='statTitle'>Red Cards</h4>
       <Row>
-        <Col id='homeStat' sm={1}>{match['homeTeamRedCards']}</Col>
+        <Col className='homeStat' sm={1}>{match['homeTeamRedCards']}</Col>
         <Col>
           <div>
-            <div id='block1' className="statBarContainer">
+            <div id='homeTeamBar' className="statBarContainer">
               <div style={statBarStyle(awayTeamRedCards, true)}>&nbsp;</div>
             </div>
-            <div id='block2' className="statBarContainer">
+            <div id='awayTeamBar' className="statBarContainer">
               <div style={statBarStyle(awayTeamRedCards, false)}>&nbsp;</div>
             </div>
           </div>
         </Col>
-        <Col id='awayStat' sm={1}>{match['awayTeamRedCards']}</Col>
+        <Col className='awayStat' sm={1}>{match['awayTeamRedCards']}</Col>
       </Row>
-      <hr style={{height: '1px', color: 'white'}}></hr>
+      <hr></hr>
     </div>
   )
 }
