@@ -8,7 +8,9 @@ export default function TeamTile({teamName}) {
   const navigateResults = () => {
     navigate("/results", {
       state: {
-        team: teamName
+        team: teamName,
+        season: '',
+        month: ''
       }
     });
   };

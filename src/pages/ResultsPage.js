@@ -7,31 +7,22 @@ import { months, seasons as defaultSeasons } from '../constants';
 export default function ResultsPage() {
 
   const location = useLocation();
-  const teamNameFromOtherPage = location.state ? location.state.team : '';
-  var monthFromMatchPage;
+  var teamNameFromOtherPage = '';
+  var seasonFromOtherPage = '';
+  var monthFromOtherPage = '';
   if (location.state) {
-    if (location.state.month) {
-      monthFromMatchPage = location.state.month;
-    } else {
-      monthFromMatchPage = '';
-    }
-  }
-  var seasonFromMatchPage;
-  if (location.state) {
-    if (location.state.season) {
-      seasonFromMatchPage = location.state.season;
-    } else {
-      seasonFromMatchPage = '';
-    }
+    teamNameFromOtherPage = location.state.team;
+    seasonFromOtherPage = location.state.season;
+    monthFromOtherPage = location.state.month;
   }
 
   const [team, setTeam] = useState(() => teamNameFromOtherPage ? teamNameFromOtherPage : '');
   const [seasons, setSeasons] = useState(defaultSeasons);
-  const [season, setSeason] = useState(() => seasonFromMatchPage ? seasonFromMatchPage : seasons[0]);
-  const [month, setMonth] = useState(() => monthFromMatchPage ? monthFromMatchPage : '');
+  const [season, setSeason] = useState(() => seasonFromOtherPage ? seasonFromOtherPage : seasons[0]);
+  const [month, setMonth] = useState(() => monthFromOtherPage ? monthFromOtherPage : '');
   const [teams, setTeams] = useState([]);
   const [matches, setMatches] = useState([]);
-  const [flag, setFlag] = useState(true);
+  const [isSeasonProvided, setIsSeasonProvided] = useState(() => seasonFromOtherPage ? true : false);
 
   const createMatchDic = (matchArray) => {
     const matchDic = {};
@@ -137,10 +128,10 @@ export default function ResultsPage() {
           const data = await response.json();
           const seasonsArray = data['seasons'];
           setSeasons(seasonsArray);
-          setFlag(false);
-          if (flag) {
+          if (!isSeasonProvided) {
             setSeason(seasonsArray[0]);
           }
+          setIsSeasonProvided(true);
         }
       } catch (err) {
         console.log(err);
