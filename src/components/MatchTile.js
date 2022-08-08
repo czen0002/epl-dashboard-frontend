@@ -1,6 +1,7 @@
 import React from 'react';
 import { Col, Row, Image} from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
+import "./MatchTile.scss";
 
 export default function MatchTile({ index, match, team, month, season }) {
 
