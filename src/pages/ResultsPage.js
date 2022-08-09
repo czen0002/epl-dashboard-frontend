@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom';
 import { Container, DropdownButton, Dropdown, Button } from 'react-bootstrap';
 import MatchOnDate from '../components/MatchOnDate';
 import { months, seasons as defaultSeasons } from '../constants';
+import './ResultsPage.scss';
 
 export default function ResultsPage() {
 
@@ -157,7 +158,7 @@ export default function ResultsPage() {
   }, [team, season, month]);
 
   return (
-      <Container style={{ textAlign: 'left' }}>
+      <Container id='container'>
         <br></br>
         <br></br>
         <DropdownButton title={team !== '' ? `${team}` : 'Team'} className="d-inline mx-2" onSelect={(e) => setTeam(e)}>
