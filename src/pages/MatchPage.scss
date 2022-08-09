@@ -1,13 +1,13 @@
-#matchTitle {
+.matchTitle {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
 }
 
-#matchLogo {
+.matchLogo {
   margin: auto;
 }
 
-#matchCenter{
+.matchCenter{
   display: grid;
   height: 84%;
   width: 80%;
@@ -15,35 +15,35 @@
   margin: auto;
 }
 
-#matchCenter #rowOne {
+.dateRow {
   grid-row: 1/2;
   margin: auto;
   color: aliceblue;
 }
 
-#matchCenter #rowTwo {
+.stadiumRow {
   grid-row: 2/3;
   margin: auto;
   color: aliceblue;
 }
 
-#matchCenter #rowThree {
+.refereeRow {
   grid-row: 3/4;
   margin: auto;
   color: aliceblue;
 }
 
-#matchCenter #matchScore {
+.matchScore {
   grid-row: 4/6;
 }
 
-#matchScore {
+.matchScore {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   background-color: rgb(55, 60, 60);
   color: aliceblue;
 }
 
-#matchScoreCol {
+.matchScoreCol {
   margin: auto;
 }
