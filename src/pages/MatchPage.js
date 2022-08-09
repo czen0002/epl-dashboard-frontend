@@ -2,7 +2,7 @@ import React from 'react';
 import { Button, Container, Image } from 'react-bootstrap';
 import { useLocation, useNavigate } from 'react-router-dom';
 import MatchBoard from '../components/MatchBoard';
-import "./MatchPage.css";
+import "./MatchPage.scss";
 import { stadiums } from '../constants';
 
 export default function MatchPage() {
