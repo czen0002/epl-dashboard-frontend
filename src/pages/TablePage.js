@@ -1,7 +1,8 @@
-import { React, useEffect, useState }  from 'react';
+import { React, useEffect, useState } from 'react';
 import { Container, Table, Dropdown, DropdownButton } from 'react-bootstrap';
-import {useNavigate} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { seasons } from '../constants';
+import './TablePage.scss';
 
 export default function TablePage() {
 
@@ -37,7 +38,7 @@ export default function TablePage() {
   }, [season]);
 
   return (
-    <Container style={{ textAlign: 'left' }}>
+    <Container id='container'>
         <br></br>
         <DropdownButton id="dropdown-basic-button" title={`${season}`} className="text-left" onSelect={(e) => setSeason(e)}>
           {seasons.map((season, index) => {
@@ -45,9 +46,9 @@ export default function TablePage() {
           })}
         </DropdownButton>
         <br></br>
-        <Table bordered striped style= {{color: 'white', border: 'gray'}}>
+        <Table bordered striped id='table'>
           <thead>
-            <tr style={{ backgroundColor: '#0d6efd'}}>
+            <tr>
               <th>Position</th>
               <th>Team Name</th>
               <th>P</th>
@@ -63,11 +64,11 @@ export default function TablePage() {
           <tbody>
             {teams.map((team, index) => {
               return (
-                <tr key={index} style={{ backgroundColor: 'white', color: 'black'}}>
+                <tr key={index}>
                   <td>{index+1}</td>
                   <td>
                     <img src={`/images/${team.teamName}.png`} width='30' height='30' alt={`${team.teamName}`}></img>
-                    &nbsp;&nbsp;<div style={{display: 'inline'}} onClick={() => navigateResults(team.teamName)}>{team.teamName}</div>
+                    &nbsp;&nbsp;<div onClick={() => navigateResults(team.teamName)}>{team.teamName}</div>
                   </td>
                   <td>{team.played}</td>
                   <td>{team.won}</td>
