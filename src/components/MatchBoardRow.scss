@@ -15,23 +15,14 @@
   font-size: large;
 }
 
-#homeTeamBar {
-  display: inline-block;
+.homeStatBar {
+  width: 50%;
   background-color: #04AA6D;
-}
-
-#awayTeamBar {
   display: inline-block;
 }
 
-.statBarContainer {
+.awayStatBar {
   width: 50%;
   background-color: #ddd;
-}
-
-div {
-  hr {
-    height: 1px;
-    color: white;
-  }
+  display: inline-block;
 }

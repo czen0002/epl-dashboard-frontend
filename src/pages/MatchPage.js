@@ -46,7 +46,7 @@ export default function MatchPage() {
           <p className='my-auto text-light'>{match['awayTeam']}</p>
         </div>
       </div>
-      <hr style={{height: '4px', color: '#abbcde'}}></hr>
+      <hr style={{height: '4px', backgroundColor: '#abbcde'}}></hr>
       <MatchBoard match={match} />
       <br></br>
       <Button onClick={backToResultPage}>Back</Button>
